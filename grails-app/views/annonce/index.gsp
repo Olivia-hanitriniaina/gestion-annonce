@@ -45,7 +45,7 @@
                                 <img src="${baseUrl + illustration.filename}" />
                             </g:each>
                     </td>
-                    <td><a href="/projet/user/show/1">${userList.findByAnnonceId(1)}User(username:admin)</a></td>
+%{--                    <td><a href="/projet/user/show/1">${userList.findByAnnonceId(1)}User(username:admin)</a></td>--}%
                 </tr>
                 </g:each>
                 </tbody>
