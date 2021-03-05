@@ -23,6 +23,11 @@ class BootStrap {
         UserRole.create(modUser, modRole, true)
         UserRole.create(userUser, userRole, true)
 
+        (1..20).each {
+            Integer userId ->
+                UserRole.create( new User(username: "admin$userId", password: "password").save(), adminRole, true)
+        }
+
         User.list().each {
             User userInstance ->
                 (1..5).each {
