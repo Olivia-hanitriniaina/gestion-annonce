@@ -32,7 +32,7 @@
                 <tbody>
                 <g:each in="${userList}" var="user">
                 <tr class="even">
-                    <td><a href="/projet/user/show/1">${user.username}</a></td>
+                    <td><a href="/projet/user/show/${user.id}">${user.username}</a></td>
                     <td>${user.passwordExpired}</td>
                     <td>${user.accountLocked}</td>
                     <td>${user.passwordExpired}</td>
