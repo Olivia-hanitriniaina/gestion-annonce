@@ -46,6 +46,11 @@
                 </li>
 
                 <li class="fieldcontain">
+                    <span id="type-label" class="property-label">Type</span>
+                    <div class="property-value" aria-labelledby="type-label">${role}</div>
+                </li>
+
+                <li class="fieldcontain">
                     <span id="annonces-label" class="property-label">Annonces</span>
                     <div class="property-value" aria-labelledby="annonces-label">
                         <ul>

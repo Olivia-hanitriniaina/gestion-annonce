@@ -17,11 +17,15 @@ class UserController {
     }
 
     def show(Long id) {
-        respond userService.get(id)
+        def user = User.get(id)
+        def userRole = UserRole.findByUser(user)
+        def role = Role.get(userRole.roleId)
+        respond userService.get(id), model:[role: role.authority]
     }
 
     def create() {
-        respond new User(params)
+        def roleList = Role.findAll();
+        respond new User(params), model:[roleList: roleList]
     }
 
     def save(User user) {
@@ -32,6 +36,8 @@ class UserController {
 
         try {
             userService.save(user)
+            def role = Role.findById(params.role)
+            UserRole.create(user, role, true)
         } catch (ValidationException e) {
             respond user.errors, view:'create'
             return
