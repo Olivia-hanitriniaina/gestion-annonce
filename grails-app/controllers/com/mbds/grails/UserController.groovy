@@ -1,5 +1,6 @@
 package com.mbds.grails
 
+import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
@@ -8,20 +9,20 @@ class UserController {
     UserService userService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
+    @Secured(['ROLE_ADMIN','ROLE_MODO'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond userService.list(params), model:[userCount: userService.count()]
     }
-
+    @Secured(['ROLE_ADMIN','ROLE_MODO'])
     def show(Long id) {
         respond userService.get(id)
     }
-
+    @Secured('ROLE_ADMIN')
     def create() {
         respond new User(params)
     }
-
+    @Secured('ROLE_ADMIN')
     def save(User user) {
         if (user == null) {
             notFound()
@@ -43,11 +44,11 @@ class UserController {
             '*' { respond user, [status: CREATED] }
         }
     }
-
+    @Secured(['ROLE_ADMIN','ROLE_MODO'])
     def edit(Long id) {
         respond userService.get(id)
     }
-
+    @Secured(['ROLE_ADMIN','ROLE_MODO'])
     def update(User user) {
         if (user == null) {
             notFound()
@@ -69,7 +70,7 @@ class UserController {
             '*'{ respond user, [status: OK] }
         }
     }
-
+    @Secured('ROLE_ADMIN')
     def delete(Long id) {
         if (id == null) {
             notFound()

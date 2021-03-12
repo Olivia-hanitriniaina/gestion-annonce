@@ -1,5 +1,6 @@
 package com.mbds.grails
 
+import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
@@ -8,20 +9,20 @@ class IllustrationController {
     IllustrationService illustrationService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
+    @Secured(['ROLE_ADMIN','ROLE_MODO'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond illustrationService.list(params), model:[illustrationCount: illustrationService.count()]
     }
-
+    @Secured(['ROLE_ADMIN','ROLE_MODO'])
     def show(Long id) {
         respond illustrationService.get(id)
     }
-
+    @Secured('ROLE_ADMIN')
     def create() {
         respond new Illustration(params)
     }
-
+    @Secured('ROLE_ADMIN')
     def save(Illustration illustration) {
         if (illustration == null) {
             notFound()
@@ -43,11 +44,11 @@ class IllustrationController {
             '*' { respond illustration, [status: CREATED] }
         }
     }
-
+    @Secured(['ROLE_ADMIN','ROLE_MODO'])
     def edit(Long id) {
         respond illustrationService.get(id)
     }
-
+    @Secured(['ROLE_ADMIN','ROLE_MODO'])
     def update(Illustration illustration) {
         if (illustration == null) {
             notFound()
@@ -69,7 +70,7 @@ class IllustrationController {
             '*'{ respond illustration, [status: OK] }
         }
     }
-
+    @Secured('ROLE_ADMIN')
     def delete(Long id) {
         if (id == null) {
             notFound()
