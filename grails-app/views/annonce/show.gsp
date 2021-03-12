@@ -19,7 +19,13 @@
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:display bean="annonce" />
+            <f:display bean="annonce" except="illustrations"/>
+            <div class="fieldcontain">
+                <label for="annonce.illustrations">Illustrations</label>
+                <g:each in="${annonce.illustrations}" var="illustration">
+                    <asset:image src="${illustration.filename}"></asset:image>
+                </g:each>
+            </div>
             <g:form resource="${this.annonce}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${this.annonce}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
