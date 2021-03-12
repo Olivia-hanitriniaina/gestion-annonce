@@ -60,6 +60,9 @@
                 <label for="illustrations">Illustrations</label>
                 <g:each in="${annonce.illustrations}" var="illustration">
                     <img src="${baseUrl + illustration.filename}" />
+                    <g:link controller="annonce" action="editImage" params="[idimage: illustration.id, id: annonce.id]" >
+                        <asset:image src="remove.png" width="20"></asset:image>
+                    </g:link>
                 </g:each>
             </div>
 
