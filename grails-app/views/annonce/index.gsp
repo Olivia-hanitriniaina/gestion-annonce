@@ -43,7 +43,11 @@
                     <td>
                             <g:each in="${annonce.illustrations}" var="illustration">
                                 <img src="${baseUrl + illustration.filename}" />
+                                <p style="display: inline-block;">${illustration.id}</p>
                             </g:each>
+                    </td>
+                    <td>
+                        ${annonce.author.username}
                     </td>
 %{--                    <td><a href="/projet/user/show/1">${userList.findByAnnonceId(1)}User(username:admin)</a></td>--}%
                 </tr>
