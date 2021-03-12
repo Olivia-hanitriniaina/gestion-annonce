@@ -4,11 +4,11 @@ import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
-@Secured('ROLE_ADMIN')
+@Secured(['ROLE_ADMIN','ROLE_MODO'])
 class AnnonceController {
 
     AnnonceService annonceService
-
+    @Secured(['ROLE_ADMIN','ROLE_MODO'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond annonceService.list(params), model:[
@@ -17,21 +17,32 @@ class AnnonceController {
                 baseUrl: grailsApplication.config.annonces.illustrations.url
         ]
     }
-
+    @Secured(['ROLE_ADMIN','ROLE_MODO'])
     def show(Long id) {
         respond annonceService.get(id)
     }
-
+    @Secured('ROLE_ADMIN')
     def create() {
-        respond new Annonce(params)
+        respond new Annonce(params),model: [userList: User.list()]
     }
-
+    @Secured('ROLE_ADMIN')
     def save(Annonce annonce) {
         if (annonce == null) {
             notFound()
             return
         }
+        def f = request.getFile('file')
 
+        if (!f.empty) {
+
+            def filen = f.originalFilename
+            def path = 'D:\\ITU\\M2\\Galli\\grails-itu-mbds-groupe-4\\grails-app\\assets\\images\\' + filen
+            def illu=new Illustration(
+                    filename: filen
+            )
+            f.transferTo(new File(path))
+            annonce.addToIllustrations(illu)
+        }
         try {
             annonceService.save(annonce)
         } catch (ValidationException e) {
@@ -48,10 +59,12 @@ class AnnonceController {
         }
     }
 
+
+    @Secured('ROLE_ADMIN')
     def edit(Long id) {
         respond annonceService.get(id), model: [userList: User.list(), baseUrl: grailsApplication.config.annonces.illustrations.url]
     }
-
+    @Secured('ROLE_ADMIN')
     def update() {
         def annonce = Annonce.get(params.id)
         annonce.title = params.title
@@ -68,7 +81,18 @@ class AnnonceController {
          * 3. Créer un illustration sur le fichier que vous avez sauvegardé
          * 4. Attacher l'illustration nouvellement créée à l'annonce
          */
+        def f = request.getFile('file')
+       // def image = annonce.illustrations.find { it.filename == "whatever" }
+        if (!f.empty) {
 
+            def filen = f.originalFilename
+            def path = 'D:\\ITU\\M2\\Galli\\grails-itu-mbds-groupe-4\\grails-app\\assets\\images\\' + filen
+            def illu=new Illustration(
+                    filename: filen
+            )
+            f.transferTo(new File(path))
+            annonce.addToIllustrations(illu)
+        }
         try {
             annonceService.save(annonce)
         } catch (ValidationException e) {
@@ -84,7 +108,31 @@ class AnnonceController {
             '*'{ respond annonce, [status: OK] }
         }
     }
+    @Secured('ROLE_ADMIN')
+    def editImage() {
+        def annonce = params.id
+        def image= params.idimage
+//        annonce.author = User.get(params.author.id)
+        if (annonce == null) {
+            notFound()
+            return
+        }
+        /**
+         * 1. Récupérer le fichier dans la requête
+         * 2. Sauvegarder le fichier localement
+         * 3. Créer un illustration sur le fichier que vous avez sauvegardé
+         * 4. Attacher l'illustration nouvellement créée à l'annonce
+         */
 
+        try {
+            System.out.println(image)
+            //annonceService.save(annonce)
+        } catch (ValidationException e) {
+           // respond annonce.errors, view:'edit'
+            return
+        }
+    }
+    @Secured('ROLE_ADMIN')
     def delete(Long id) {
         if (id == null) {
             notFound()
