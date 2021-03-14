@@ -30,7 +30,26 @@
             </div>
             <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
                 <ul class="nav navbar-nav navbar-right">
-                    <g:pageProperty name="page.nav" />
+
+                    <div id="controllers" role="navigation">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menus <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="controller">
+                                    <a href="/projet/annonce/index">Annonce</a>
+                                </li>
+                                <li class="controller">
+                                    <a href="/projet/user/index">User</a>
+                                </li>
+                                <li class="controller">
+                                    <a href="/projet/login/index">Login</a>
+                                </li>
+                                <li class="controller">
+                                    <a href="/projet/logout/index">Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </div>
                 </ul>
             </div>
         </div>
