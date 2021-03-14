@@ -45,7 +45,9 @@
                                     <a href="/projet/login/index">Login</a>
                                 </li>
                                 <li class="controller">
-                                    <a href="/projet/logout/index">Logout</a>
+                                    <g:form controller="logout">
+                                        <g:submitButton  name="Submit" value="Logout" />
+                                    </g:form>
                                 </li>
                             </ul>
                         </li>
