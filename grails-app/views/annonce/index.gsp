@@ -54,7 +54,6 @@
                 </g:each>
                 </tbody>
             </table>
-            <f:table collection="${annonceList}" />
             <div class="pagination">
                 <g:paginate total="${annonceCount ?: 0}" />
             </div>

@@ -18,7 +18,7 @@ class User implements Serializable {
     boolean accountLocked
     boolean passwordExpired
 
-    static hasMany = [annonces: Annonce]
+    static hasMany = [annonces: Annonce, userRoles: UserRole]
 
     Set<Role> getAuthorities() {
         (UserRole.findAllByUser(this) as List<UserRole>)*.role as Set<Role>
@@ -31,5 +31,7 @@ class User implements Serializable {
 
     static mapping = {
 	    password column: '`password`'
+        annonces cascade: 'all-delete-orphan'
+        userRoles cascade: 'all-delete-orphan'
     }
 }

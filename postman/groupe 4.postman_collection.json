@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "991fae5e-1812-45fe-a3bf-d3db1c851525",
+		"name": "groupe 4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8081/projet/api/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"password\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/projet/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"projet",
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
