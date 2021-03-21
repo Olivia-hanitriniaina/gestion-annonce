@@ -43,7 +43,6 @@
                     <td>
                             <g:each in="${annonce.illustrations}" var="illustration">
                                 <img src="${baseUrl + illustration.filename}" />
-                                <p style="display: inline-block;">${illustration.id}</p>
                             </g:each>
                     </td>
                     <td>

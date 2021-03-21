@@ -12,7 +12,7 @@
         <g:layoutTitle default="Grails"/>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
+    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
     <asset:stylesheet src="application.css"/>
     <asset:stylesheet src="all.min.css"/>
     <asset:stylesheet src="sb-admin-2.min.css"/>
@@ -21,7 +21,6 @@
             rel="stylesheet">
 
     <g:layoutHead/>
-
 
 </head>
 
@@ -38,6 +37,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
+
             <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
         </a>
 
@@ -47,7 +47,36 @@
                 <i class="fas fa-fw fa-table"></i>
                 <span>Tables</span></a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse"
+               data-target="#collapseTwo" aria-expanded="true"
+               aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Annonce</span>
+            </a>
 
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar"
+                 style="">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="/projet/annonce/index">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Annonce Liste
+                    </a>
+
+                    <a class="collapse-item" href="/projet/annonce/create">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Annonce Ajout
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+
+            <a class="dropdown-item" href="/projet/user/index">
+                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                User
+            </a>
+        </li>
     </ul>
     <!-- End of Sidebar -->
 
@@ -70,6 +99,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                aria-label="Search" aria-describedby="basic-addon2">
+
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="button">
                                 <i class="fas fa-search fa-sm"></i>
@@ -95,6 +125,7 @@
                                     <input type="text" class="form-control bg-light border-0 small"
                                            placeholder="Search for..." aria-label="Search"
                                            aria-describedby="basic-addon2">
+
                                     <div class="input-group-append">
                                         <button class="btn btn-primary" type="button">
                                             <i class="fas fa-search fa-sm"></i>
@@ -112,22 +143,23 @@
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                            <asset:image class="img-profile rounded-circle" src="undraw_profile.svg" />
+                            <asset:image class="img-profile rounded-circle" src="undraw_profile.svg"/>
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
 
                             <div id="controllers" role="navigation">
-                                <a class="dropdown-item"  href="/projet/annonce/index"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Annonce</a>
-                                <a class="dropdown-item" href="/projet/user/index"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>User</a>
-                                <a class="dropdown-item" href="/projet/login/index"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Login</a>
-                            <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="/projet/login/index"><i
+                                        class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Login</a>
+
+                                <div class="dropdown-divider"></div>
                                 <g:form class="dropdown-item" controller="logout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    <g:submitButton  name="Submit" value="Logout" />
+                                    <g:submitButton name="Submit" value="Logout"/>
                                 </g:form>
-                        </div>
+                            </div>
                     </li>
 
                 </ul>
@@ -178,7 +210,9 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
+
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                 <a class="btn btn-primary" href="login.html">Logout</a>
@@ -188,23 +222,20 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<asset:javascript src="vendor/jquery/jquery.min.js"/>
+<asset:javascript src="vendor/bootstrap/js/bootstrap.bundle.min.js"/>
 
 <!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<asset:javascript src="vendor/jquery-easing/jquery.easing.min.js"/>
 
 <!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+<asset:javascript src="js/sb-admin-2.min.js"/></script>
 
 <!-- Page level plugins -->
-<script src="vendor/chart.js/Chart.min.js"></script>
+<asset:javascript src="vendor/chart.js/Chart.min.js"/>
 
 <!-- Page level custom scripts -->
-<script src="js/demo/chart-area-demo.js"></script>
-<script src="js/demo/chart-pie-demo.js"></script>
-
-<asset:javascript src="application.js"/>
+<asset:javascript src="js/demo/chart-area-demo.js"/>
 </body>
 
 </html>
