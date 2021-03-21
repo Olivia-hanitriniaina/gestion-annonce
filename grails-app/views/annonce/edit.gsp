@@ -56,15 +56,28 @@
                 </label><input type="number decimal" name="price" value="${annonce.price}" required="" min="0.0" id="price">
             </div>
 
+
+            <script>
+                function test(id){
+                    document.getElementById(id).style.visibility = "hidden";
+
+                    var deleteIllustration = document.getElementById("deleteIllustration").value
+                    deleteIllustration+=id+","
+                    document.getElementById("deleteIllustration").value = deleteIllustration
+                    console.log(document.getElementById("deleteIllustration").value)
+                }
+            </script>
+
             <div class="fieldcontain">
                 <label for="illustrations">Illustrations</label>
                 <g:each in="${annonce.illustrations}" var="illustration">
-                    <img src="${baseUrl + illustration.filename}" />
-                    <g:link controller="annonce" action="editImage" params="[idimage: illustration.id, id: annonce.id]" >
-                        <asset:image src="remove.png" width="20"></asset:image>
-                    </g:link>
+                    <div style="display: inline-block" id="${illustration.id}" >
+                        <img src="${baseUrl + illustration.filename}" />
+                        <asset:image onClick="test(${illustration.id})" src="remove.png" width="20"></asset:image>
+                    </div>
                 </g:each>
             </div>
+            <input id="deleteIllustration" name="deleteIllustration" type="hidden" value="" />
 
             <div class="fieldcontain">
                 <label for="file">Upload</label>

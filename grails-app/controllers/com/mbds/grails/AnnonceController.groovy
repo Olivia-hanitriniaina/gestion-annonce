@@ -66,10 +66,16 @@ class AnnonceController {
     }
     @Secured('ROLE_ADMIN')
     def update() {
+        def idsIllustration = params.deleteIllustration.split(',')
+
         def annonce = Annonce.get(params.id)
         annonce.title = params.title
         annonce.description = params.description
         annonce.price = Double.parseDouble(params.price)
+        idsIllustration.each {
+                def illustration = Illustration.get(it)
+                annonce.removeFromIllustrations(illustration)
+        }
 //        annonce.author = User.get(params.author.id)
         if (annonce == null) {
             notFound()
