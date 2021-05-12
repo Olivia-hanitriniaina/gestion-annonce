@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory
 
 @Integration
 @Rollback
-class AnnonceServiceSpec extends Specification {
+class annonceServiceSpec extends Specification {
 
     AnnonceService annonceService
     SessionFactory sessionFactory
@@ -65,7 +65,7 @@ class AnnonceServiceSpec extends Specification {
     void "test save"() {
         when:
         assert false, "TODO: Provide a valid instance to save"
-        Annonce annonce = new Annonce()
+        etudiants annonce = new Annonce()
         annonceService.save(annonce)
 
         then:

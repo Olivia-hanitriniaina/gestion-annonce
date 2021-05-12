@@ -30,7 +30,7 @@ class BootStrap {
 
         User.list().each {
             User userInstance ->
-                (1..5).each {
+                (1..15).each {
                     Integer annonceIdx ->
                         def annonceInstance = new Annonce(
                                 title: "Titre de l'annonce $annonceIdx",

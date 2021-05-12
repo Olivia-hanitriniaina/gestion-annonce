@@ -16,16 +16,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Login</title>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
-<asset:stylesheet src="application.css"/>
-<asset:stylesheet src="all.min.css"/>
-<asset:stylesheet src="sb-admin-2.min.css"/>
-<link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
+    <asset:stylesheet src="application.css"/>
+    <asset:stylesheet src="all.min.css"/>
+    <asset:stylesheet src="sb-admin-2.min.css"/>
+    <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
 </head>
-<body class="bg-gradient-primary">
+
+<body>
 
 <div class="container">
 
@@ -38,35 +39,38 @@
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
                     <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block "></div>
+                        <div class="col-lg-3 "></div>
+
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">Se connecter à l'application</h1>
                                 </div>
-                                <form action="/projet/login/authenticate" method="POST" id="loginForm" class="cssform" autocomplete="off">
+
+                                <form action="/projet/login/authenticate" method="POST" id="loginForm" class="cssform"
+                                      autocomplete="off">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" name="username" id="username" placeholder="Username">
+                                        <input type="text" class="form-control form-control-user" name="username"
+                                               id="username" placeholder="Username">
                                     </div>
+
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Password">
+                                        <input type="password" class="form-control form-control-user" name="password"
+                                               id="password" placeholder="Password">
                                     </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox small">
-                                            <input type="checkbox" class="custom-control-input" name="remember-me" id="remember_me">
-                                            <label class="custom-control-label" for="remember_me">Remember
-                                            Me</label>
-                                        </div>
-                                    </div>
-                                    <input class="btn btn-primary btn-user btn-block" type="submit" id="submit" value="Login">
+
+                                    <input class="btn btn-primary btn-user btn-block" type="submit" id="submit"
+                                           value="Login">
                                     <script>
-                                        (function() {
+                                        (function () {
                                             document.forms['loginForm'].elements['username'].focus();
                                         })();
                                     </script>
                                 </form>
                             </div>
                         </div>
+
+                        <div class="col-lg-3"></div>
                     </div>
                 </div>
             </div>

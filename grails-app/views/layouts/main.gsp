@@ -16,7 +16,7 @@
     <asset:stylesheet src="application.css"/>
     <asset:stylesheet src="fontawesome-free/css/all.min.css"/>
     <asset:stylesheet src="all.min.css"/>
-    <asset:stylesheet src="sb-admin-2.min.css"/>
+    <asset:stylesheet src="sb-admin-2.css"/>
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
@@ -31,52 +31,30 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
-            </div>
 
-            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-        </a>
-
-        <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <a class="nav-link" href="tables.html">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Tables</span></a>
-        </li>
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse"
-               data-target="#collapseTwo" aria-expanded="true"
-               aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-cog"></i>
+               data-target="#collapseannonce" aria-expanded="true"
+               aria-controls="collapseannonce">
+                <i class="fas fa-fw fa-newspaper"></i>
                 <span>Annonce</span>
             </a>
-
-            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar"
+            <div id="collapseannonce" class="collapse" aria-labelledby="headingAnnoncz" data-parent="#accordionSidebar"
                  style="">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="/projet/annonce/index">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Annonce Liste
+                         Liste Annonce
                     </a>
 
                     <a class="collapse-item" href="/projet/annonce/create">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Annonce Ajout
+                         Ajout Annonce
                     </a>
                 </div>
             </div>
-        </li>
-        <li class="nav-item">
-
-            <a class="dropdown-item" href="/projet/user/index">
-                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                User
-            </a>
         </li>
     </ul>
     <!-- End of Sidebar -->
@@ -223,16 +201,16 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<asset:javascript src="vendor/jquery/jquery.min.js"/>
-<asset:javascript src="vendor/bootstrap/js/bootstrap.bundle.min.js"/>
+<asset:javascript src="jquery.min.js"/>
+<asset:javascript src="bootstrap.bundle.min.js"/>
 
 <!-- Core plugin JavaScript-->
-<asset:javascript src="vendor/jquery-easing/jquery.easing.min.js"/>
+<asset:javascript src="query.easing.min.js"/>
 
 <!-- Custom scripts for all pages-->
-<asset:javascript src="sb-admin-2.min.js"/></script>
+<asset:javascript src="sb-admin-2.js"/></script>
 
-<asset:javascript src="vendor/chart.js/Chart.min.js"/>
+<asset:javascript src="Chart.min.js"/>
 
 <asset:javascript src="chart-area-demo.js"/>
 </body>
